@@ -17,8 +17,4 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-      - run: sonar-scanner \
-              -Dsonar.projectKey=GitHub-tarikdogdu \
-              -Dsonar.sources=. \
-              -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-              -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      - run: sonar-scanner
