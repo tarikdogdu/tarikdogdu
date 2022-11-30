@@ -1,0 +1,9 @@
+name: Build
+on:
+  push:
+    branches:
+      - main # or the name of your main branch
+jobs:
+  build:
+    - name: Official SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v1.1.0
