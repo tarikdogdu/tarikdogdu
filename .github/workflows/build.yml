@@ -1,16 +1,24 @@
-on: push
-name: SonarQube
+on:
+  # Trigger analysis when pushing in master or pull requests, and when creating
+  # a pull request. 
+  push:
+    branches:
+      - master
+  pull_request:
+      types: [opened, synchronize, reopened]
+
+name: Main Workflow
 jobs:
-  sonarQubeTrigger:
-    name: SonarQube Trigger
+  sonarqube:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Setup sonarqube
-      uses: warchant/setup-sonar-scanner@v3
-    - name: Run sonarqube
-      run: sonar-scanner
-           -Dsonar.projectKey=GitHub-tarikdogdu 
-           -Dsonar.sources=. 
-           -Dsonar.host.url=http://127.0.0.1:9000
-           -Dsonar.login=sqp_681a708c065d63a26c850c766facd72c4de54362
+    - uses: actions/checkout@v2
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: sqp_89f5943f394c099338e23add89660bf42619e6bf
+        SONAR_HOST_URL: http://127.0.0.1:9000
+
