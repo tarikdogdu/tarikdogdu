@@ -1,0 +1,21 @@
+on: 
+  workflow_dispatch:
+    inputs:
+      projectVersion:
+        description: 'Version'
+        required: true
+name: Development
+jobs:
+  sonarQubeTrigger:
+    name: SonarQube Trigger
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: SonarQube Scan
+      uses: sijomc/sonarscan-action@master
+      with:
+        host: http://localhost:9000
+        login: sqp_ecefd263da9fd0fd4c9025fd440b2b66ea8929e7
+        projectKey: "GitHub-tarikdogdu"
+        projectName: "tarikdogdu.github.io"
+        projectVersion: 1.1
