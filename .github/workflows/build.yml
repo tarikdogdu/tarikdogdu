@@ -20,5 +20,5 @@ jobs:
       uses: sonarsource/sonarqube-scan-action@master
       env:
         SONAR_TOKEN: sqp_89f5943f394c099338e23add89660bf42619e6bf
-        SONAR_HOST_URL: http://127.0.0.1:9000
+        SONAR_HOST_URL: https://d388-46-196-125-228.eu.ngrok.io
 
