@@ -10,5 +10,7 @@ jobs:
       uses: warchant/setup-sonar-scanner@v3
     - name: Run sonarqube
       run: sonar-scanner
-           -Dsonar.host.url=${{ secrets.SONAR_URL }} 
-           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+           -Dsonar.projectKey=GitHub-tarikdogdu 
+           -Dsonar.sources=. 
+           -Dsonar.host.url=http://127.0.0.1:9000
+           -Dsonar.login=sqp_681a708c065d63a26c850c766facd72c4de54362
